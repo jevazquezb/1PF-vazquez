@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="title-cont">
+    <h1 fontWeight="bold" headerFont>Alumnos</h1>
+    <button 
+      mat-raised-button 
+      aria-label="Icon-button with add user icon"
+      (click)="openStudentDialog()" 
+    >
+      <mat-icon>person_add</mat-icon>
+      Agregar estudiante
+    </button>
+  </div>
+  <student-table
+    [dataSource]="students"
+    (editStudent)="onEditStudent($event)"
+    (removeStudent)="onRemoveStudent($event)"
+  ></student-table>
+</div>
+
+
+

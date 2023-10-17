@@ -1,0 +1,12 @@
+<app-toolbar (toggleSideNav)="showSideNav = !showSideNav"></app-toolbar>
+<mat-drawer-container>
+  <mat-drawer
+    #drawer
+    [opened]="showSideNav"
+    mode="side"
+  >
+    <app-sidenav></app-sidenav>  
+  </mat-drawer>
+  <app-content></app-content>
+</mat-drawer-container>
+

@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>
+  {{ title }}
+</h1>
+
+<div mat-dialog-content>
+  <!-- Contenido... -->
+
+  <form [formGroup]="studentForm">
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Nombre</mat-label>
+          <input formControlName="name" matInput />
+          <mat-error>
+            {{ studentForm.get("name")?.errors | formErrorHandler }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Apellido</mat-label>
+          <input formControlName="lastName" matInput />
+          <mat-error>
+            {{ studentForm.get("lastName")?.errors | formErrorHandler }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Edad</mat-label>
+          <input formControlName="age" matInput />
+          <mat-error>
+            {{ studentForm.get("age")?.errors | formErrorHandler : 'age' }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Calificación</mat-label>
+          <input formControlName="grades" matInput />
+          <mat-error>
+            {{ studentForm.get("grades")?.errors | formErrorHandler : 'grade' }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-dialog-close mat-button>Cancelar</button>
+  <button (click)="onSubmit()" mat-button>Guardar</button>
+</div>
