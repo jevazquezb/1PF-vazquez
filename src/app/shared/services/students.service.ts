@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Data, StudentsModel } from '../../components/student-table/student-table.model';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

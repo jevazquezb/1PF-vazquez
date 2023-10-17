@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentFormComponent } from '../student-form/student-form.component';
 import { Data, StudentsModel } from '../student-table/student-table.model';
-import { HttpClient } from '@angular/common/http';
 import { StudentsService } from 'src/app/shared/services/students.service';
 
 @Component({
