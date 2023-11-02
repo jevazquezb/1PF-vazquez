@@ -1,26 +1,26 @@
 <mat-nav-list>
-  <a mat-list-item>
-    <div class="item">
+  <a mat-list-item routerLink="home">
+    <div class="item" routerLinkActive="is-active">
       <mat-icon>home</mat-icon>
       <span>Home</span>
     </div>      
   </a>
-  <a mat-list-item>
-    <div class="item is-active">
+  <a mat-list-item routerLink="students">
+    <div class="item" routerLinkActive="is-active">
       <mat-icon>group</mat-icon>
       <span>Alumnos</span>
     </div>      
   </a>
-  <a mat-list-item>
-    <div class="item">
-      <mat-icon>schedule</mat-icon>
-      <span>Clases</span>
-    </div>      
-  </a>    
-  <a mat-list-item>
-    <div class="item">
+  <a mat-list-item routerLink="courses">
+    <div class="item" routerLinkActive="is-active">
       <mat-icon>description</mat-icon>
       <span>Cursos</span>
+    </div>      
+  </a>
+  <a mat-list-item routerLink="classes">
+    <div class="item" routerLinkActive="is-active">
+      <mat-icon>schedule</mat-icon>
+      <span>Clases</span>
     </div>      
   </a>
 </mat-nav-list>

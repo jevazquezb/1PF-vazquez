@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="title-cont">
+    <h1 fontWeight="bold" headerFont>Clases</h1>
+    <button 
+      mat-raised-button 
+      aria-label="Icon-button with add user icon"
+      (click)="addClass()"
+    >
+      <mat-icon>schedule</mat-icon>
+      Agregar clase
+    </button>
+  </div>
+  <class-table
+    [dataSource]="(classes$ | async) ?? []"
+    (editClass)="onEditClass($event)"
+    (removeClass)="onRemoveClass($event)"
+  ></class-table>
+</div>

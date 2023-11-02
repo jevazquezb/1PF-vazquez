@@ -13,6 +13,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule}  from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule}  from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { FullNamePipe } from './pipes/full-name.pipe';
 import { HeaderFontDirective } from './directives/header-font.directive';
 import { FormErrorHandlerPipe } from './pipes/form-errors.pipe';
@@ -39,7 +41,9 @@ import { FormErrorHandlerPipe } from './pipes/form-errors.pipe';
     MatPaginatorModule,
     FullNamePipe,
     HeaderFontDirective,
-    FormErrorHandlerPipe
+    FormErrorHandlerPipe,
+    MatDatepickerModule,
+    NgxMaterialTimepickerModule
   ]
 })
 export class SharedModule { }

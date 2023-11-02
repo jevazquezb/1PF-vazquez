@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
 import { StudentsModel } from './student-table.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'student-table',
@@ -16,4 +15,12 @@ export class StudentTableComponent {
   @Output() removeStudent = new EventEmitter<number>();
 
   @Output() editStudent = new EventEmitter<StudentsModel>();
+
+  constructor(private router: Router) { }
+
+  navigateToStudent(student: StudentsModel): void {
+    this.router.navigate(['students', student.id], {
+      state: student
+    });
+  }
 }

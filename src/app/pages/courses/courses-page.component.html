@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="title-cont">
+    <h1 fontWeight="bold" headerFont>Cursos</h1>
+    <button 
+      mat-raised-button 
+      aria-label="Icon-button with add user icon"
+      (click)="addCourse()"
+    >
+      <mat-icon>library_books</mat-icon>
+      Agregar curso
+    </button>
+  </div>
+  <course-table
+    [dataSource]="(courses$ | async) ?? []"
+    (editCourse)="onEditCourse($event)"
+    (removeCourse)="onRemoveCourse($event)"
+  ></course-table>
+</div>
