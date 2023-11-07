@@ -33,7 +33,8 @@ export class StudentsPageComponent {
               ...this.students, 
               {
                 ...student,
-                id: lastId
+                id: lastId,
+                active: true
               }
             ];
             this.studentsService.currentStudentList = [...this.students];

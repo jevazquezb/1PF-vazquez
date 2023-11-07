@@ -19,6 +19,7 @@ export class ClassesService {
       day: 'Miércoles',
       startTime: this.getTime(new Date, 0),
       endTime: this.getTime(new Date, 2),
+      professor: 'María Vallejo'
     },
     {
       id: this.idService.generateId(),
@@ -26,6 +27,7 @@ export class ClassesService {
       day: 'Jueves',
       startTime: this.getTime(new Date, 0),
       endTime: this.getTime(new Date, 2),
+      professor: 'Brendan Eich'
     },
     {
       id: this.idService.generateId(),
@@ -33,6 +35,7 @@ export class ClassesService {
       day: 'Lunes',
       startTime: this.getTime(new Date, 0),
       endTime: this.getTime(new Date, 2),
+      professor: 'Josue Báez'
     },
     {
       id: this.idService.generateId(),
@@ -40,6 +43,7 @@ export class ClassesService {
       day: 'Viernes',
       startTime: this.getTime(new Date, 0),
       endTime: this.getTime(new Date, 2),
+      professor: 'Yukihiro Matsumoto'
     },
     {
       id: this.idService.generateId(),
@@ -47,6 +51,7 @@ export class ClassesService {
       day: 'Martes',
       startTime: this.getTime(new Date, 0),
       endTime: this.getTime(new Date, 2),
+      professor: 'David Heinemeier'
     },
     {
       id: this.idService.generateId(),
@@ -54,6 +59,7 @@ export class ClassesService {
       day: 'Lunes',
       startTime: this.getTime(new Date, 0),
       endTime: this.getTime(new Date, 2),
+      professor: 'Guido van Rossum'
     },
   ];
 

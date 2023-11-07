@@ -1,0 +1,27 @@
+mat-card {
+  margin: 5rem auto 0;
+  width: 50%;
+
+}
+
+mat-card-header {
+  padding: 1.1rem;
+}
+
+.avatar {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+}
+
+p {
+  background-color: #d9e0df;
+}
+
+.icon-size {
+  font-size: 1.3rem;
+  width: 1.3rem;
+  height: 1.3rem;
+}

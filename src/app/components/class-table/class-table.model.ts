@@ -4,4 +4,5 @@ export interface CourseClass{
   day: string;
   startTime: string;
   endTime: string;
+  professor?: string;
 }

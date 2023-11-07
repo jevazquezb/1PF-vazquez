@@ -1,7 +1,34 @@
-<p>{{ student.id }}</p>
-<p>{{ student | fullName }}</p>
-<p>{{ student.age }}</p>
-<p>{{ student.grades }}</p>
-<button (click)="navigateToStudentsList()" mat-icon-button>
-  <mat-icon>arrow_back</mat-icon>
-</button>
+<mat-card>
+  <mat-card-header>
+    <mat-icon mat-card-avatar class="avatar">person</mat-icon>
+    <mat-card-title>{{ student | fullName }}</mat-card-title>
+    <mat-card-subtitle>{{ 'Clave: ' + student.id }}</mat-card-subtitle>   
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row row-gap-4">
+      <div class="col-6 d-flex align-items-center gap-2">
+        <h3 class="fw-bold m-0">Edad:</h3>
+        <p class="p-1 flex-grow-1 shadow-sm rounded m-0"> {{ student.age + ' años' }}</p>  
+      </div>
+      <div class="col-6 d-flex align-items-center gap-2">
+        <h3 class="fw-bold m-0">Calificación:</h3>
+        <p class="p-1 flex-grow-1 shadow-sm rounded m-0"> {{ student.grades + '%' }}</p>  
+      </div>
+      <div class="col-6 d-flex align-items-center gap-2">
+        <h3 class="fw-bold m-0">Activo:</h3>
+        <p class="p-1 flex-grow-1 shadow-sm rounded d-flex align-items-center m-0">
+          <mat-icon class="icon-size" [class]="student.active ? 'text-success' : 'text-danger'">{{ student.active ? 'check_circle' : 'cancel' }}</mat-icon>
+        </p>  
+      </div>
+      <div class="col-6 d-flex align-items-center gap-2">
+        <h3 class="fw-bold m-0">Colegiatura:</h3>
+        <p class="p-1 flex-grow-1 shadow-sm rounded m-0"> {{ student.fees ? (student.fees | currency: 'GBP') : 'N/A' }}</p>  
+      </div>
+    </div>    
+  </mat-card-content>  
+  <mat-card-actions align="end">
+    <button (click)="navigateToStudentsList()" mat-icon-button title="Regresar a alumnos">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

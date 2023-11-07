@@ -13,6 +13,7 @@ export class StudentDetailsComponent {
   constructor(private router: Router) {
     const navigation = router.getCurrentNavigation();
     this.student = navigation.extras.state as StudentsModel;
+    console.log(this.student.fees);
   }
 
   navigateToStudentsList(): void {
