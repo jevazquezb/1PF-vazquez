@@ -18,6 +18,11 @@ const routes: Routes = [
     path: 'classes',
     loadChildren: () => import('./pages/classes/classes-page.module').then(m => m.ClassesPageModule)
   },
+  ,
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
+  },
   {
     path: '**',
     redirectTo: 'home',

@@ -1,0 +1,14 @@
+{
+  "students": [
+    {
+      "name": "María",
+      "lastName": "Vallejo",
+      "email": "maria@email.com",
+      "password": "maria",
+      "token": "19861216mtvz",
+      "role": "USER",
+      "id": 1
+    }
+  ],
+  "courses": []
+}
