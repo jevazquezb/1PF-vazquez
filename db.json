@@ -1,5 +1,5 @@
 {
-  "students": [
+  "users": [
     {
       "name": "María",
       "lastName": "Vallejo",
@@ -8,7 +8,17 @@
       "token": "19861216mtvz",
       "role": "USER",
       "id": 1
+    },
+    {
+      "name": "Crysele",
+      "lastName": "Calderon",
+      "email": "crys@email.com",
+      "password": "crys",
+      "token": "19890519ccc",
+      "role": "ADMIN",
+      "id": 2
     }
   ],
+  "students": [],
   "courses": []
 }

@@ -31,7 +31,8 @@ export class FormErrorHandlerPipe implements PipeTransform {
       `La edad máxima debe ser de ${error.max} años.`
       :
       `La calificación máxima debe ser de ${error.max}.`,
-    maxlength: (error) => `No sobrepasar los ${error.requiredLength} caracteres.`
+    maxlength: (error) => `No sobrepasar los ${error.requiredLength} caracteres.`,
+    email: () => 'Correo electrónico inválido.'
   }
 }
 

@@ -15,6 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule}  from '@angular/material/paginator';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { MatMenuModule } from '@angular/material/menu';
 import { FullNamePipe } from './pipes/full-name.pipe';
 import { HeaderFontDirective } from './directives/header-font.directive';
 import { FormErrorHandlerPipe } from './pipes/form-errors.pipe';
@@ -43,7 +44,8 @@ import { FormErrorHandlerPipe } from './pipes/form-errors.pipe';
     HeaderFontDirective,
     FormErrorHandlerPipe,
     MatDatepickerModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    MatMenuModule
   ]
 })
 export class SharedModule { }

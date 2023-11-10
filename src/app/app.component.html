@@ -1,4 +1,7 @@
-<app-toolbar (toggleSideNav)="showSideNav = !showSideNav"></app-toolbar>
+<app-toolbar
+  (toggleSideNav)="showSideNav = !showSideNav"
+  *ngIf="isLoggedIn"
+></app-toolbar>
 <mat-drawer-container>
   <mat-drawer
     #drawer
