@@ -1,7 +1,7 @@
 {
   "students": [
     {
-      "id": 101,
+      "id": 1,
       "name": "Carlos",
       "lastName": "Santos",
       "active": true,
@@ -10,7 +10,7 @@
       "fees": 1230
     },
     {
-      "id": 202,
+      "id": 2,
       "name": "Mark",
       "lastName": "Thomson",
       "active": true,
@@ -19,7 +19,7 @@
       "fees": 750
     },
     {
-      "id": 303,
+      "id": 3,
       "name": "Stephany",
       "lastName": "Taylor",
       "active": true,
@@ -28,7 +28,7 @@
       "fees": 840
     },
     {
-      "id": 404,
+      "id": 4,
       "name": "Angela",
       "lastName": "Roirand",
       "active": true,
@@ -37,7 +37,7 @@
       "fees": 1765
     },    
     {
-      "id": 505,
+      "id": 5,
       "name": "Michael",
       "lastName": "Jackson",
       "active": false,
@@ -46,7 +46,7 @@
       "fees": 320
     },
     {
-      "id": 606,
+      "id": 6,
       "name": "Melissa",
       "lastName": "Pulisic",
       "active": false,
