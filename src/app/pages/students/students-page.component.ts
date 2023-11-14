@@ -1,43 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentFormComponent } from '../../components/student-form/student-form.component';
-import { Data, StudentsModel } from '../../components/student-table/student-table.model';
+import { StudentsModel } from '../../components/student-table/student-table.model';
 import { StudentsService } from 'src/app/shared/services/students.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-students',
   templateUrl: './students-page.component.html',
   styleUrls: ['./students-page.component.scss']
 })
-export class StudentsPageComponent {
+export class StudentsPageComponent implements OnDestroy {
   students: StudentsModel[] = [];
+  private getStudentsSubscription: Subscription;
+  private createStudentSubscription: Subscription;
+  private editStudentSubscription: Subscription;
+  private removeStudentSubscription: Subscription;
 
   constructor(
     private studentsService: StudentsService,
     private matDialog: MatDialog) {
-    studentsService.getStudents().subscribe((res: Data) => {
-      this.students = studentsService.currentStudentList ?? res.students;
+    this.getStudentsSubscription = studentsService.getStudents$().subscribe((students: StudentsModel[]) => {
+      this.students = students;
     });
   }
 
   addStudent(): void {
-    const lastId = this.students[this.students.length - 1].id + 101;
-
     this.matDialog
       .open(StudentFormComponent)
       .afterClosed()
       .subscribe({
         next: (student) => {
           if (!!student) {
-            this.students = [
-              ...this.students, 
-              {
-                ...student,
-                id: lastId,
-                active: true
-              }
-            ];
-            this.studentsService.currentStudentList = [...this.students];
+            this.createStudentSubscription = this.studentsService.createStudent$(student).subscribe((students: StudentsModel[]) => {
+              this.students = students;
+            });
           }
         }
       });
@@ -52,17 +49,28 @@ export class StudentsPageComponent {
       .subscribe({
         next: (editedStudent) => {
           if (!!editedStudent) {
-            this.students = this.students.map(student =>
-              student.id === selectedStudent.id ? { ...student, ...editedStudent} : student  
-            );
-            this.studentsService.currentStudentList = [...this.students];
+            editedStudent.id = selectedStudent.id;
+            this.editStudentSubscription = this.studentsService.editStudent$(editedStudent).subscribe((students: StudentsModel[]) => {
+              this.students = students;
+            });
+
           }
         }
       });
   }
 
   onRemoveStudent(studentId: number): void {
-    this.students = this.students.filter(student => student.id !== studentId);
-    this.studentsService.currentStudentList = [...this.students];
+    if (confirm(`¿Desea eliminar al estudiante con clave ${studentId}?`)) {
+      this.removeStudentSubscription = this.studentsService.removeStudent$(studentId).subscribe((students: StudentsModel[]) => {
+        this.students = students;
+      })    
+    }
+  }
+
+  ngOnDestroy() {
+    this.getStudentsSubscription?.unsubscribe();
+    this.createStudentSubscription?.unsubscribe();
+    this.editStudentSubscription?.unsubscribe();
+    this.removeStudentSubscription?.unsubscribe();
   }
 }

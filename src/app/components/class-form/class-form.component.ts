@@ -25,7 +25,8 @@ export class ClassFormComponent {
       name: ['', [Validators.required, Validators.maxLength(15)]],
       day: ['', Validators.required],
       startTime: [null, Validators.required],
-      endTime: [null, Validators.required]
+      endTime: [null, Validators.required],
+      professor: ['', Validators.maxLength(25)]
     });
 
     if (this.courseClass) {

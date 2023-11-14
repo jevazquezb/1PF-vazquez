@@ -29,12 +29,7 @@ export class CoursesPageComponent {
       .subscribe({
         next: (course) => {
           if (course) {
-            this.courses$ = this.coursesService.createCourse$({
-              id: this.idService.generateId(),
-              name: course.name,
-              startDate: course.startDate,
-              endDate: course.endDate
-            });
+            this.courses$ = this.coursesService.createCourse$(course);
           }
         },
       });
@@ -56,7 +51,10 @@ export class CoursesPageComponent {
       });
   }
 
-  onRemoveCourse(courseId: string): void {
-    this.courses$ = this.coursesService.removeCourse$(courseId);
+  onRemoveCourse(courseId: number): void {
+    console.log(typeof courseId);
+    if (confirm(`¿Desea eliminar el curso con clave ${courseId}?`)) {
+      this.courses$ = this.coursesService.removeCourse$(courseId);
+    }
   }
 }

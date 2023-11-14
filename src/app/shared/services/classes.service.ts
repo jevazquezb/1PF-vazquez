@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IdService } from './id.service';
 import { CourseClass } from 'src/app/components/class-table/class-table.model';
-import { Observable, of } from 'rxjs';
-import { Course } from 'src/app/components/course-table/course-table.model';
+import { Observable, concatMap, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.local';
 
 @Injectable({
   providedIn: 'root'
@@ -11,77 +12,36 @@ export class ClassesService {
   static readonly BUSINESS_DAYS: string[] = [
     'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'
   ];
-  
-  classes: CourseClass[] = [
-    {
-      id: this.idService.generateId(),
-      name: 'Desarrollo web',
-      day: 'Miércoles',
-      startTime: this.getTime(new Date, 0),
-      endTime: this.getTime(new Date, 2),
-      professor: 'María Vallejo'
-    },
-    {
-      id: this.idService.generateId(),
-      name: 'Javascript',
-      day: 'Jueves',
-      startTime: this.getTime(new Date, 0),
-      endTime: this.getTime(new Date, 2),
-      professor: 'Brendan Eich'
-    },
-    {
-      id: this.idService.generateId(),
-      name: 'Angular',
-      day: 'Lunes',
-      startTime: this.getTime(new Date, 0),
-      endTime: this.getTime(new Date, 2),
-      professor: 'Josue Báez'
-    },
-    {
-      id: this.idService.generateId(),
-      name: 'Ruby',
-      day: 'Viernes',
-      startTime: this.getTime(new Date, 0),
-      endTime: this.getTime(new Date, 2),
-      professor: 'Yukihiro Matsumoto'
-    },
-    {
-      id: this.idService.generateId(),
-      name: 'Ruby on Rails',
-      day: 'Martes',
-      startTime: this.getTime(new Date, 0),
-      endTime: this.getTime(new Date, 2),
-      professor: 'David Heinemeier'
-    },
-    {
-      id: this.idService.generateId(),
-      name: 'Python',
-      day: 'Lunes',
-      startTime: this.getTime(new Date, 0),
-      endTime: this.getTime(new Date, 2),
-      professor: 'Guido van Rossum'
-    },
-  ];
 
-  constructor(private idService: IdService) { }
+  constructor(private idService: IdService, private httpClient: HttpClient) { }
 
   getClasses$(): Observable<CourseClass[]> {
-    return of(this.classes);
+    return this.httpClient.get<CourseClass[]>(`${environment.baseUrl}/classes`);
+    // return of(this.classes);
   }
 
   createClass$(courseClass: CourseClass): Observable<CourseClass[]> {
-    this.classes.push(courseClass);
-    return of([...this.classes]);
+    return this.httpClient
+      .post<CourseClass>(`${environment.baseUrl}/classes`, courseClass)
+      .pipe(concatMap(() => this.getClasses$()));
+    // this.classes.push(courseClass);
+    // return of([...this.classes]);
   }
 
   editClass$(editedClass: CourseClass): Observable<CourseClass[]> {
-    this.classes = this.classes.map(courseClass => courseClass.id === editedClass.id ? { ...courseClass, ...editedClass } : courseClass);
-    return of([...this.classes]);
+    return this.httpClient
+      .put<CourseClass>(`${environment.baseUrl}/classes/${editedClass.id}`, editedClass)
+      .pipe(concatMap(() => this.getClasses$()));
+    // this.classes = this.classes.map(courseClass => courseClass.id === editedClass.id ? { ...courseClass, ...editedClass } : courseClass);
+    // return of([...this.classes]);
   }
 
-  removeClass$(classId: string): Observable<CourseClass[]> {
-    this.classes = this.classes.filter(courseClass => courseClass.id !== classId);
-    return of([...this.classes]);
+  removeClass$(classId: number): Observable<CourseClass[]> {
+    return this.httpClient
+      .delete<Object>(`${environment.baseUrl}/classes/${classId}`)
+      .pipe(concatMap(() => this.getClasses$()));
+    // this.classes = this.classes.filter(courseClass => courseClass.id !== classId);
+    // return of([...this.classes]);
   }
 
   private getTime(date: Date, hours?: number): string {

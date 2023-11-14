@@ -1,0 +1,52 @@
+{
+  "classes": [
+    {
+      "id": 1,
+      "name": "Desarrollo web",
+      "day": "Miércoles",
+      "startTime": "20:19",
+      "endTime": "22:19",
+      "professor": "María Vallejo"
+    },
+    {
+      "id": 2,
+      "name": "Javascript",
+      "day": "Jueves",
+      "startTime": "20:19",
+      "endTime": "22:19",
+      "professor": "Brendan Eich"
+    },
+    {
+      "id": 3,
+      "name": "Angular",
+      "day": "Lunes",
+      "startTime": "20:19",
+      "endTime": "22:19",
+      "professor": "Josue Báez"
+    },
+    {
+      "id": 4,
+      "name": "Ruby",
+      "day": "Viernes",
+      "startTime": "20:19",
+      "endTime": "22:19",
+      "professor": "Yukihiro Matsumoto"
+    },
+    {
+      "id": 5,
+      "name": "Ruby on Rails",
+      "day": "Martes",
+      "startTime": "20:19",
+      "endTime": "22:19",
+      "professor": "David Heinemeier"
+    },
+    {
+      "id": 6,
+      "name": "Python",
+      "day": "Lunes",
+      "startTime": "20:19",
+      "endTime": "22:19",
+      "professor": "Guido van Rossum"
+    }
+  ]
+}

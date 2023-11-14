@@ -20,7 +20,8 @@ export class CourseFormComponent {
     this.courseForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(15)]],
       startDate: [null, Validators.required],
-      endDate: [null, Validators.required]
+      endDate: [null, Validators.required],
+      description: ['', Validators.maxLength(500)]
     });
 
     if (this.course) {

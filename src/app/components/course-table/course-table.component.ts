@@ -12,7 +12,7 @@ export class CourseTableComponent {
   
   @Input() dataSource: Course[];
 
-  @Output() removeCourse = new EventEmitter<string>();
+  @Output() removeCourse = new EventEmitter<number>();
 
   @Output() editCourse = new EventEmitter<Course>();
 
