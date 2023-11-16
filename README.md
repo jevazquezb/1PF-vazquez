@@ -1,27 +1,70 @@
-# 1PFVazquez
+# Fake School
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+> DESCRIPTION PENDING.
 
-## Development server
+## Built With
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Json-server.
+- Typescript, SCSS, HTML.
+- Angular & Angular Material.
+- Git & GitHub.
 
-## Code scaffolding
+## Live Demo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Coming soon.
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To get a local copy up and running follow these simple example steps.
 
-## Running unit tests
+### Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    Git & Github
+    Node (NVM & NPM)
+    Json-server
+    Angular
+    
 
-## Running end-to-end tests
+### Setup
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    1. git clone https://github.com/jevazquezb/1PF-vazquez.git
+    2. cd 1PF-vazquez
+    3. npm install
+    4. json-server --watch db.json
 
-## Further help
+### Usage
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    1. ng serve -o
+
+### Done!
+
+Ready to work?⛏️ You're all set to explore and change the repo locally (on your computer).
+
+## Author
+
+👤 **Jesús Vázquez**
+
+- GitHub: [@jevazquezb](https://github.com/jevazquezb)
+- Twitter: [@javb_1187](https://twitter.com/javb_1187)
+- LinkedIn: [@jevazquezb](https://www.linkedin.com/in/jevazquezb)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/jevazquezb/1PF-vazquez/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- My Angular teacher [Josué Báez](https://github.com/josuedeveloper15/).
+- Google and Stack Overflow.
+- Inspiration.
+- etc.
+
+## 📝 License
+
+This project is [MIT](./LICENSE) licensed.
