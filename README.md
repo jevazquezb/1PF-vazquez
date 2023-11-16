@@ -60,7 +60,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- My Angular teacher Josué Báez.
+- My Angular teacher [Josué Báez](https://github.com/josuedeveloper15/).
 - Google and Stack Overflow.
 - Inspiration.
 - etc.
