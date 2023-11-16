@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { CourseFormComponent } from 'src/app/components/course-form/course-form.component';
 import { Course } from 'src/app/components/course-table/course-table.model';
 import { CoursesService } from 'src/app/shared/services/courses.service';
-import { IdService } from 'src/app/shared/services/id.service';
 
 @Component({
   selector: 'app-courses',
@@ -17,7 +16,6 @@ export class CoursesPageComponent {
   constructor(
     private coursesService: CoursesService,
     private matDialog: MatDialog,
-    private idService: IdService
   ) {
     this.courses$ = coursesService.getCourses$();
   }
@@ -52,7 +50,6 @@ export class CoursesPageComponent {
   }
 
   onRemoveCourse(courseId: number): void {
-    console.log(typeof courseId);
     if (confirm(`¿Desea eliminar el curso con clave ${courseId}?`)) {
       this.courses$ = this.coursesService.removeCourse$(courseId);
     }

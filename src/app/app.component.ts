@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnDestroy {
-  title = '1PF-vazquez';
+  title = 'PF-vazquez';
   showSideNav = true;
   isLoggedIn: boolean = false;
   private userSubscription: Subscription;
