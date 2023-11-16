@@ -34,7 +34,11 @@ To get a local copy up and running follow these simple example steps.
 
 ### Usage
 
-    1. ng serve -o
+    ng serve -o
+
+### Tests
+
+    ng test
 
 ### Done!
 
