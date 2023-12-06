@@ -23,7 +23,11 @@ const routes: Routes = [
     canActivate: [authGuard],
     loadChildren: () => import('./pages/classes/classes-page.module').then(m => m.ClassesPageModule)
   },
-  ,
+  {
+    path: 'enrollments',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/enrollments/enrollments.module').then(m => m.EnrollmentsModule)
+  },
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)

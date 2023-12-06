@@ -168,5 +168,25 @@
       "endTime": "22:19",
       "professor": "Guido van Rossum"
     }
+  ],
+  "enrollments": [
+    {
+      "id": 1,
+      "studentId": 5,
+      "courseId": 1,
+      "classId": 1
+    },
+    {
+      "id": 2,
+      "studentId": 5,
+      "courseId": 6,
+      "classId": 6
+    },
+    {
+      "id": 3,
+      "studentId": 1,
+      "courseId": 5,
+      "classId": 5
+    }
   ]
 }
