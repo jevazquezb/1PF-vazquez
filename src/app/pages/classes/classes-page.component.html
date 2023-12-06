@@ -5,6 +5,7 @@
       mat-raised-button 
       aria-label="Icon-button with add user icon"
       (click)="addClass()"
+      [disabled]="(userRole$ | async) === 'USER'"
     >
       <mat-icon>schedule</mat-icon>
       Agregar clase

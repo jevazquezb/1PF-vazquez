@@ -32,11 +32,18 @@
         <mat-icon>visibility</mat-icon>
       </button>
 
-      <button (click)="editCourse.emit(course)" mat-icon-button>
-        <mat-icon class="icon-color">edit</mat-icon>
+      <button (click)="editCourse.emit(course)"
+        mat-icon-button
+        [disabled]="(userRole$ | async) === 'USER'"
+      >
+        <mat-icon [class]="(userRole$ | async) === 'USER' ? null : 'icon-color'">edit</mat-icon>
       </button>
 
-      <button (click)="removeCourse.emit(course.id)" mat-icon-button color="warn">
+      <button (click)="removeCourse.emit(course.id)"
+        mat-icon-button
+        color="warn"
+        [disabled]="(userRole$ | async) === 'USER'"
+      >
         <mat-icon>delete</mat-icon>
       </button>
     </td>

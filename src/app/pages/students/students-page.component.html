@@ -5,6 +5,7 @@
       mat-raised-button 
       aria-label="Icon-button with add user icon"
       (click)="addStudent()" 
+      [disabled]="(userRole$ | async) === 'USER'"
     >
       <mat-icon>person_add</mat-icon>
       Agregar estudiante

@@ -5,6 +5,7 @@
       mat-raised-button 
       aria-label="Icon-button with add user icon"
       (click)="addCourse()"
+      [disabled]="(userRole$ | async) === 'USER'"
     >
       <mat-icon>library_books</mat-icon>
       Agregar curso

@@ -3,7 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { StudentFormComponent } from '../../components/student-form/student-form.component';
 import { StudentsModel } from '../../components/student-table/student-table.model';
 import { StudentsService } from 'src/app/shared/services/students.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription, map } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'app-students',
@@ -12,6 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class StudentsPageComponent implements OnDestroy {
   students: StudentsModel[] = [];
+  userRole$: Observable<'ADMIN' | 'USER' | undefined>;
   private getStudentsSubscription: Subscription;
   private createStudentSubscription: Subscription;
   private editStudentSubscription: Subscription;
@@ -19,10 +22,16 @@ export class StudentsPageComponent implements OnDestroy {
 
   constructor(
     private studentsService: StudentsService,
-    private matDialog: MatDialog) {
+    private matDialog: MatDialog,
+    private store: Store
+  ) {
     this.getStudentsSubscription = studentsService.getStudents$().subscribe((students: StudentsModel[]) => {
       this.students = students;
     });
+
+    this.userRole$ = this.store
+      .select(selectAuthUser)
+      .pipe(map(user => user?.role));
   }
 
   addStudent(): void {

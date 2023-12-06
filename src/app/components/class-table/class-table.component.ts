@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CourseClass } from './class-table.model';
+import { Observable, map } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'class-table',
@@ -9,6 +12,7 @@ import { CourseClass } from './class-table.model';
 })
 export class ClassTableComponent {
   displayedColumns: string[] = ['id', 'name', 'day', 'schedule', 'actions'];
+  userRole$: Observable<'ADMIN' | 'USER' | undefined>;
 
   @Input() dataSource: CourseClass[];
 
@@ -16,7 +20,11 @@ export class ClassTableComponent {
 
   @Output() editClass = new EventEmitter<CourseClass>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private store: Store) {
+    this.userRole$ = this.store
+      .select(selectAuthUser)
+      .pipe(map(user => user?.role));
+  }
 
   navigateToClass(courseClass: CourseClass): void {
     this.router.navigate(['classes', courseClass.id], {

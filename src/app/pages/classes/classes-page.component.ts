@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable, map } from 'rxjs';
 import { ClassFormComponent } from 'src/app/components/class-form/class-form.component';
 import { CourseClass } from 'src/app/components/class-table/class-table.model';
 import { ClassesService } from 'src/app/shared/services/classes.service';
-import { IdService } from 'src/app/shared/services/id.service';
+import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'app-classes',
@@ -13,13 +14,18 @@ import { IdService } from 'src/app/shared/services/id.service';
 })
 export class ClassesPageComponent {
   classes$: Observable<CourseClass[]>;
+  userRole$: Observable<'ADMIN' | 'USER' | undefined>;
 
   constructor (
     private classesService: ClassesService,
     private matDialog: MatDialog,
-    private idService: IdService
+    private store: Store
   ) {
     this.classes$ = classesService.getClasses$();
+
+    this.userRole$ = this.store
+      .select(selectAuthUser)
+      .pipe(map(user => user?.role));
   }
 
   addClass(): void {
