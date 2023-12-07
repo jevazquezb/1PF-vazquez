@@ -6,6 +6,7 @@ import { StudentsService } from 'src/app/shared/services/students.service';
 import { Observable, Subscription, map } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
+import { Role } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-students',
@@ -14,7 +15,7 @@ import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
 })
 export class StudentsPageComponent implements OnDestroy {
   students: StudentsModel[] = [];
-  userRole$: Observable<'ADMIN' | 'USER' | undefined>;
+  userRole$: Observable<Role | undefined>;
   private getStudentsSubscription: Subscription;
   private createStudentSubscription: Subscription;
   private editStudentSubscription: Subscription;

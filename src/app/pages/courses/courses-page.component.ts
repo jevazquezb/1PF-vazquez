@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
 import { CourseFormComponent } from 'src/app/components/course-form/course-form.component';
 import { Course } from 'src/app/components/course-table/course-table.model';
+import { Role } from 'src/app/shared/models/user.model';
 import { CoursesService } from 'src/app/shared/services/courses.service';
 import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
 
@@ -14,7 +15,7 @@ import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
 })
 export class CoursesPageComponent {
   courses$: Observable<Course[]>;
-  userRole$: Observable<'ADMIN' | 'USER' | undefined>;
+  userRole$: Observable<Role | undefined>;
 
   constructor(
     private coursesService: CoursesService,

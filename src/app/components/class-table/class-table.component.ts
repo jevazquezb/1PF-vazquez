@@ -4,6 +4,7 @@ import { CourseClass } from './class-table.model';
 import { Observable, map } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
+import { Role } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'class-table',
@@ -12,7 +13,7 @@ import { selectAuthUser } from 'src/app/store/auth/auth.selectors';
 })
 export class ClassTableComponent {
   displayedColumns: string[] = ['id', 'name', 'day', 'schedule', 'actions'];
-  userRole$: Observable<'ADMIN' | 'USER' | undefined>;
+  userRole$: Observable<Role | undefined>;
 
   @Input() dataSource: CourseClass[];
 

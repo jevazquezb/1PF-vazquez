@@ -55,7 +55,7 @@
       "grades": 66,
       "age": 16,
       "fees": 1765
-    },    
+    },
     {
       "id": 5,
       "name": "Michael",
@@ -117,6 +117,13 @@
       "startDate": "13/Nov/2023",
       "endDate": "13/Nov/2023",
       "description": "En este curso aprenderás las bases de programación uno de los lenguajes más populares en estos tiempos. Partirás desde sus fundamentos, para luego abarcar módulos y sintaxis, hasta el uso de reglas para crear tus primeras aplicaciones. Incorporarás los conocimientos necesarios de Class-Based-View, login - register - accounts, CRUD y modelforms. Desarrollarás una aplicación web estilo blog de la mano de Python en Django Framework."
+    },
+    {
+      "name": "Nuevo curso",
+      "startDate": "2024-01-01T06:00:00.000Z",
+      "endDate": "2023-12-31T06:00:00.000Z",
+      "description": "Este es mi nuevo curso",
+      "id": 7
     }
   ],
   "classes": [
@@ -187,6 +194,12 @@
       "studentId": 1,
       "courseId": 5,
       "classId": 5
+    },
+    {
+      "studentId": 2,
+      "courseId": 4,
+      "classId": 4,
+      "id": 4
     }
   ]
 }
