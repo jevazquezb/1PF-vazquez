@@ -8,7 +8,7 @@
   </a>
   <a mat-list-item routerLink="students">
     <div class="item" routerLinkActive="is-active">
-      <mat-icon>group</mat-icon>
+      <mat-icon>school</mat-icon>
       <span>Alumnos</span>
     </div>      
   </a>
@@ -28,6 +28,12 @@
     <div class="item" routerLinkActive="is-active">
       <mat-icon>assignment</mat-icon>
       <span>Inscripciones</span>
+    </div>      
+  </a>
+  <a mat-list-item routerLink="users" *ngIf="(userRole$ | async) === 'ADMIN'">
+    <div class="item" routerLinkActive="is-active">
+      <mat-icon>group</mat-icon>
+      <span>Usuarios</span>
     </div>      
   </a>
 </mat-nav-list>

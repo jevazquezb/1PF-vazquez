@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="title-cont">
+    <h1 fontWeight="bold" headerFont>Usuarios</h1>
+    <!-- <button 
+      mat-raised-button 
+      aria-label="Icon-button with add user icon"
+      (click)="addUser()"      
+    >
+      <mat-icon>person_add</mat-icon>
+      Agregar usuario
+    </button> -->
+  </div>
+  <user-table
+    [dataSource]="(users$ | async) ?? []"
+    (editUser)="onEditUser($event)"
+    (removeUser)="onRemoveUser($event)"
+  ></user-table>
+</div>

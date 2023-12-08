@@ -12,6 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducer } from './store';
 import { EffectsModule } from '@ngrx/effects';
 import { EnrollmentsFormComponent } from './components/enrollments-form/enrollments-form.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EnrollmentsFormComponent } from './components/enrollments-form/enrollme
     ToolbarComponent,
     SidenavComponent,
     EnrollmentsFormComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
